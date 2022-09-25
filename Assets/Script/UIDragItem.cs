@@ -10,11 +10,15 @@ using UnityEngine.UI;
 /// </summary>
 public class UIDragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    //skrip untuk piece puzzle
     // Reference to current item slot.
     public UIDropSlot currentSlot;
 
     // Reference to the canvas.
     private Canvas canvas;
+    public Vector3 penyesuaian= new Vector3(0,-17.3f,0);
+    public int indexPuzzle=0;
+
     // Reference to UI raycaster.
     private GraphicRaycaster graphicRaycaster;
 
@@ -25,7 +29,7 @@ public class UIDragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     /// <param name="eventData">Event data.</param>
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Start moving object from the beginning!
+        // Start moving object from the beginning!173.675 191.958
         transform.localPosition += new Vector3(eventData.delta.x, eventData.delta.y, 0) / transform.lossyScale.x; // Thanks to the canvas scaler we need to devide pointer delta by canvas scale to match pointer movement.
 
         // We need a few references from UI.
@@ -34,7 +38,7 @@ public class UIDragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             canvas = GetComponentInParent<Canvas>();
             graphicRaycaster = canvas.GetComponent<GraphicRaycaster>();
         }
-
+        
         // Change parent of our item to the canvas.
         transform.SetParent(canvas.transform, true);
         // And set it as last child to be rendered on top of UI.
@@ -59,7 +63,7 @@ public class UIDragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     /// <param name="eventData">Event data.</param>
     public void OnEndDrag(PointerEventData eventData)
     {
-        // On end we need to test if we can drop item into new slot.
+        // On end we need to test if we can drop item into new slot. 15.497 -72.43
         var results = new List<RaycastResult>();
         graphicRaycaster.Raycast(eventData, results);
 
@@ -73,10 +77,23 @@ public class UIDragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
                 // We should check if we can place ourselves​ there.
                 if (!slot.SlotFilled)
                 {
+                    
+                    currentSlot=slot;
+                    print("slot kosong"+currentSlot.name);
+                    //mengisi slot kosong
+                    if(currentSlot.isSlotTempatPuzzle){
+                            
+                        if(indexPuzzle==currentSlot.indexBenarslot){
+                            print("piece benar indek ke-"+currentSlot.indexBenarslot);
+                            //jika index puzzle sama dengan indeks tempat maka piece puzzle benar
+                            currentSlot.currentItem = null;
+                         currentSlot = slot;
+                         currentSlot.currentItem = this;
+                        }
+                       
+                    }
                     // Swapping references.
-                    currentSlot.currentItem = null;
-                    currentSlot = slot;
-                    currentSlot.currentItem = this;
+                    
                 }
 
                 // In either cases we should break check loop.
@@ -87,7 +104,7 @@ public class UIDragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         // Changing parent back to slot.
         transform.SetParent(currentSlot.transform);
         // And centering item position.
-       transform.localPosition = new Vector3(0,-17.3f,0);
+       transform.localPosition = penyesuaian;
       // transform.localPosition = Vector3.zero;
       // transform.Translate(0,-17.3f,0)
     }
