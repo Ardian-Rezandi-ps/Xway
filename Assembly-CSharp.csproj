@@ -39,6 +39,7 @@
      <Compile Include="Assets\Script\KlikBOdy.cs" />
      <Compile Include="Assets\Script\PilihKarakter.cs" />
      <Compile Include="Assets\Script\UIDragItem.cs" />
+     <Compile Include="Assets\Script\LoginRegister.cs" />
      <Compile Include="Assets\Quiz\QuizManager.cs" />
      <Compile Include="Assets\Script\UIDropSlot.cs" />
      <Compile Include="Assets\Script\DRagitem.cs" />

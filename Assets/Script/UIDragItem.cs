@@ -87,6 +87,8 @@ public class UIDragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         // Changing parent back to slot.
         transform.SetParent(currentSlot.transform);
         // And centering item position.
-        transform.localPosition = Vector3.zero;
+       transform.localPosition = new Vector3(0,-17.3f,0);
+      // transform.localPosition = Vector3.zero;
+      // transform.Translate(0,-17.3f,0)
     }
 }
