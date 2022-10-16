@@ -38,12 +38,13 @@
   <ItemGroup>
      <Compile Include="Assets\Script\KlikBOdy.cs" />
      <Compile Include="Assets\Script\PilihKarakter.cs" />
-     <Compile Include="Assets\Script\UIDragItem.cs" />
      <Compile Include="Assets\Script\LoginRegister.cs" />
      <Compile Include="Assets\Quiz\QuizManager.cs" />
      <Compile Include="Assets\Script\UIDropSlot.cs" />
      <Compile Include="Assets\Script\DRagitem.cs" />
      <Compile Include="Assets\Script\PindahScene.cs" />
+     <Compile Include="Assets\Script\SpriteDragItem.cs" />
+     <Compile Include="Assets\Script\GamePuzzleSistem.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

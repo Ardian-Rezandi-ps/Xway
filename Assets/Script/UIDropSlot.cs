@@ -8,11 +8,26 @@ public class UIDropSlot : MonoBehaviour
 {
     //skrip untuk tempat piece
     // Reference to the item inside slot.
-    public UIDragItem currentItem;
+    public SpriteDragItem currentItem;
 
     public bool isSlotTempatPuzzle=true;
     public int indexBenarslot=0;
+    
+    
+    public void CekSlotBenar(){
+        if(currentItem!=null){
+            if(indexBenarslot==currentItem.indexPuzzle){
+                GamePuzzleSistem.instance.benarSkor+=1;
+        }
+        }
+       
+    }
+   
 
-    // Tells if slot is filled by other item.
-    public bool SlotFilled => currentItem;
+   // void Start()
+   // {
+      //  if(!isSlotTempatPuzzle){
+       //    SlotFilled=true;
+      //  }
+  //  }
 }
