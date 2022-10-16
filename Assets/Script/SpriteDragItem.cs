@@ -13,12 +13,13 @@ public class SpriteDragItem : MonoBehaviour
         
         isDragging = true;
         isOutrange=true;
-         
+        GamePuzzleSistem.instance.playbuttonSFX();
     }
     public void OnMouseUp()  {
         if(tempSlot!=null){
-           // if(!tempSlot.SlotFilled){
-               if(!isOutrange){
+            GamePuzzleSistem.instance.playbuttonSFX();
+            // if(!tempSlot.SlotFilled){
+            if (!isOutrange){
                tempSlot.currentItem=this;
                  
                    // transform.SetParent(tempSlot.gameObject.transform);

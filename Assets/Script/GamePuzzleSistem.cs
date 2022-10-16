@@ -7,6 +7,8 @@ public class GamePuzzleSistem : MonoBehaviour
     public static GamePuzzleSistem instance;
     public List<UIDropSlot> allSlots;
     public int benarSkor=0;
+    public AudioSource SFXbutton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,11 @@ public class GamePuzzleSistem : MonoBehaviour
             allSlots.Add(go.GetComponent<UIDropSlot>());
         }
     }
+    public void playbuttonSFX()
+    {
+        SFXbutton.Play();
 
+    }
     public void CekUpdateSkor(){
         foreach(UIDropSlot slote in allSlots){
              benarSkor=0;

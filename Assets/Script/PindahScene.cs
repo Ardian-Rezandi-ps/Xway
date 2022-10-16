@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PindahScene : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class PindahScene : MonoBehaviour
     {
         
     }
-
+public void Pindah(string namascene)
+    {
+        SceneManager.LoadSceneAsync(namascene);
+    }
     // Update is called once per frame
     void Update()
     {
