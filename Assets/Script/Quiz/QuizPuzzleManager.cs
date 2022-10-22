@@ -13,11 +13,11 @@ public class QuizPuzzleManager : MonoBehaviour
     public TextMeshProUGUI salahbenartext;
     public int indekBenar;
     public Image timerImg;
-    public GameObject panelWin,panelQuiz;
+    public GameObject panelWin, panelQuiz;
     public float timerTime = 0, timerMax = 0, decreasetime = 0.1f, timeUsed = 0, timecumulative = 0;
-    public List <GameObject> PuzzleUnlock;
+    public List<GameObject> PuzzleUnlock;
     public List<SoalJawab> SoalSoal;
-   
+
     private void Update()
     {
         if (Time.time >= timerTime + 1)
@@ -28,7 +28,7 @@ public class QuizPuzzleManager : MonoBehaviour
             timerTime = Time.time;
             if (timerImg.fillAmount <= 0)
             {
-             
+
             }
         }
 
@@ -57,16 +57,16 @@ public class QuizPuzzleManager : MonoBehaviour
     {
         if (indexJawabanPlayer == indexJawabanBenar)
         {
-          
+
             salahbenartext.text = "Jawaban Benar.";
             int rnd = Random.Range(0, PuzzleUnlock.Count);
             PuzzleUnlock[rnd].SetActive(true);
             PuzzleUnlock.RemoveAt(rnd);
-            
+
         }
         else
         {
-            
+
             salahbenartext.text = "Jawaban Salah.";
         }
 
