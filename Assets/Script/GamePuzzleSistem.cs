@@ -8,7 +8,7 @@ public class GamePuzzleSistem : MonoBehaviour
     public List<UIDropSlot> allSlots;
     public int benarSkor=0;
     public AudioSource SFXbutton;
-
+//cek
     // Start is called before the first frame update
     void Start()
     {

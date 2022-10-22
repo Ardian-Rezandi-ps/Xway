@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class UIDropSlot : MonoBehaviour
 {
+    //cek
     //skrip untuk tempat piece
     // Reference to the item inside slot.
     public SpriteDragItem currentItem;

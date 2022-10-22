@@ -6,6 +6,7 @@ public class SpriteDragItem : MonoBehaviour
 { 
     public UIDropSlot currentSlot,tempSlot;
      //public Vector3 penyesuaian= new Vector3(0,0f,0);
+     //cek
   public int indexPuzzle=0;
     // Start is called before the first frame update
      public bool isDragging=false;
