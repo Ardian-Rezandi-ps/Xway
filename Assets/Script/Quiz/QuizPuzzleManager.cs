@@ -15,7 +15,7 @@ public class QuizPuzzleManager : MonoBehaviour
     public Image timerImg;
     public GameObject panelWin, panelQuiz;
     public float timerTime = 0, timerMax = 0, decreasetime = 0.1f, timeUsed = 0, timecumulative = 0;
-    public List<GameObject> PuzzleUnlock;
+   // public List<GameObject> PuzzleUnlock;
     public List<SoalJawab> SoalSoal;
 
     private void Update()
@@ -42,6 +42,7 @@ public class QuizPuzzleManager : MonoBehaviour
     }
     public void LoadSoal()
     {
+        panelWin.SetActive(false);
         panelQuiz.SetActive(true);
         int rnd = Random.Range(0, SoalSoal.Count);
         textSoal.text = SoalSoal[rnd].soal;
@@ -58,16 +59,14 @@ public class QuizPuzzleManager : MonoBehaviour
         if (indexJawabanPlayer == indexJawabanBenar)
         {
 
-            salahbenartext.text = "Jawaban Benar.";
-            int rnd = Random.Range(0, PuzzleUnlock.Count);
-            PuzzleUnlock[rnd].SetActive(true);
-            PuzzleUnlock.RemoveAt(rnd);
+            salahbenartext.text = "Jawaban Benar. Anda mendapat 1 Puzzle!";
+           GamePuzzleSistem.instance.RevealPuzzlePiece();
 
         }
         else
         {
 
-            salahbenartext.text = "Jawaban Salah.";
+            salahbenartext.text = "Yah, Jawaban Salah. Coba lagi...";
         }
 
         panelWin.SetActive(true);
