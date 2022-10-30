@@ -7,9 +7,10 @@ public class GamePuzzleSistem : MonoBehaviour
     public static GamePuzzleSistem instance;
     public List<UIDropSlot> allSlots;
     public int benarSkor=0;
+    public int maxSkor=15;
     public AudioSource SFXbutton;
     public List<SpriteDragItem> potonganAll;
-    public GameObject quizUI;
+    public GameObject quizUI,winUI;
     public QuizPuzzleManager kuisMgr;
 //cek
     // Start is called before the first frame update
@@ -43,6 +44,9 @@ kuisMgr.LoadSoal();
              benarSkor=0;
             slote.CekSlotBenar();
             print("skor="+benarSkor);
+        }
+        if(benarSkor >= maxSkor){
+            winUI.SetActive(true);
         }
     }
     // Update is called once per frame

@@ -20,7 +20,7 @@ public class QuizPuzzleManager : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time >= timerTime + 1)
+      /* if (Time.time >= timerTime + 1)
         {
             timeUsed++;
             timecumulative++;
@@ -31,6 +31,7 @@ public class QuizPuzzleManager : MonoBehaviour
 
             }
         }
+        */
 
 
     }
