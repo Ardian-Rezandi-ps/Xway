@@ -40,8 +40,9 @@ kuisMgr.LoadSoal();
         potonganAll.Remove(potonganAll[r]);
     }
     public void CekUpdateSkor(){
+         benarSkor=0;
         foreach(UIDropSlot slote in allSlots){
-             benarSkor=0;
+            
             slote.CekSlotBenar();
             print("skor="+benarSkor);
         }
