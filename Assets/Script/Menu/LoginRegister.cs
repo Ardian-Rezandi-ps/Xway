@@ -26,6 +26,7 @@ public class LoginRegister : MonoBehaviour
             string pass= PlayerPrefs.GetString(userifLogin.text);
             //apakah password  saved di game sama dengan input password?
             if(pass== passwordifLogin.text){
+                PlayerPrefs.SetString("daily login","tersedia");
                 SceneManager.LoadSceneAsync(namaSceneNext);
             }else{
                 //password salah
