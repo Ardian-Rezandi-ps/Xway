@@ -20,7 +20,7 @@ public class QuizPuzzleManager : MonoBehaviour
 
     private void Update()
     {
-       if (Time.time >= timerTime + 1)
+       if ((Time.time >= timerTime + 1) && (timerImg.fillAmount!=0) && isSoalReady)
         {
             timeUsed++;
             timecumulative++;
@@ -28,7 +28,10 @@ public class QuizPuzzleManager : MonoBehaviour
             timerTime = Time.time;
             if (timerImg.fillAmount <= 0)
             {
-
+                 salahbenartext.text = "Yah, Waktu habis. Coba lagi...";
+                  panelWin.SetActive(true);
+                   isSoalReady=false;
+                //waktu habis
             }
         }
         
@@ -41,28 +44,37 @@ public class QuizPuzzleManager : MonoBehaviour
         decreasetime = 1 / timerMax;
 
     }
+    bool isSoalReady=false;
     public void LoadSoal()
     {
+      
         panelWin.SetActive(false);
         panelQuiz.SetActive(true);
         int rnd = Random.Range(0, SoalSoal.Count);
+
         textSoal.text = SoalSoal[rnd].soal;
         for (int i = 0; i < textJawaban.Count; i++)
         {
             textJawaban[i].text = SoalSoal[rnd].jawaban[i];
 
+
         }
         indexJawabanBenar = SoalSoal[rnd].indekBenar;
-
+        indekSoalTerpilih=rnd;
+         timerImg.fillAmount =1;
+         isSoalReady=true;
     }
+    int indekSoalTerpilih=0;
+   // public List<SoalJawab> soalYgSudahBenarTerjawab;
     public void ValidasiJawaban(int indexJawabanPlayer)
     {
         if (indexJawabanPlayer == indexJawabanBenar)
         {
-
+            
             salahbenartext.text = "Jawaban Benar. Anda mendapat 1 Puzzle!";
            GamePuzzleSistem.instance.RevealPuzzlePiece();
-
+          // soalYgSudahBenarTerjawab.Add()
+           SoalSoal.Remove(SoalSoal[indekSoalTerpilih]);
         }
         else
         {
@@ -71,5 +83,6 @@ public class QuizPuzzleManager : MonoBehaviour
         }
 
         panelWin.SetActive(true);
+         isSoalReady=false;
     }
 }
